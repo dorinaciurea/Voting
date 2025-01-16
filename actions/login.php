@@ -15,7 +15,7 @@ if(mysqli_num_rows($result)>0){
   $resultgroup=mysqli_query($con,$sql);
   if(mysqli_num_rows($resultgroup)>0){
     $groups=mysqli_fetch_all($resultgroup,MYSQLI_ASSOC);
-    $_SESSION['groups']=&$groups;
+    $_SESSION['groups']=$groups;
   }
   $data=mysqli_fetch_array($result);
   $_SESSION['id']=$data['id'];
@@ -29,7 +29,7 @@ if(mysqli_num_rows($result)>0){
 }else{
   echo '<script>
   alert("Invalid credentials");
-  window.location="../";
+  window.location="../partials/dashboard.php";
   </script>';
 }
 
